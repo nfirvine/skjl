@@ -1,0 +1,37 @@
+tasks:
+    - &clean-bathroom Clean the kitchen from top to bottom:
+        desc: That kitchen is a disgusting mess.  Clean it.
+        after: tomorrow #I'm going to cook dinner tonight
+        before: next friday #pals coming over
+        resources:
+            - bucket
+            - sponge
+            - mop
+        location: home
+        subtasks:
+            - clean the stove:
+                estimate: 4u
+                resources:
+                    - sponge
+                    - stove cleaner
+            - do the dishes:
+                estimate: 2u
+                resources:
+                    - dish soap
+                    - sponge
+            - clean the floor:
+                estimate: 2u
+                resources:
+                    - mop
+                    - bucket
+                    - floor cleaner
+contexts:
+    home: 
+        location: home
+        resources:
+            - sponge
+            - stove cleaner
+            - dish soap
+            - mop
+            - bucket
+            - floor cleaner
